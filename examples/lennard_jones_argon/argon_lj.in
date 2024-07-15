@@ -14,6 +14,8 @@ lattice sc 0.50
 create_atoms 1 box
 mass 1 1.0
 
+write_data lammps.data
+
 # --------- Define Interatomic Potential --------------------- 
 pair_style  lj/cut 2.5
 pair_coeff  1 1 1.0 1.0 2.5
