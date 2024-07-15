@@ -42,7 +42,7 @@ timestep 0.001
 # ---------- Run Dynamics --------------------- 
 reset_timestep 0
 dump 1 all xyz 100 heat.xyz
-dump_modify 1 element Ar Ne
+dump_modify 1 element C N
 
 fix 1 all nvt temp 0.1 1.0 0.1 
 
