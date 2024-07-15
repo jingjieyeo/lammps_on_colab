@@ -36,9 +36,9 @@ min_style cg
 # ---------- Run Energy Minimization --------------------- 
 reset_timestep 0 
 timestep 1.0
-fix 1 all box/relax iso 0.0 vmax 0.001
+fix 1 all box/relax iso 0.0
 
-dump 1 all xyz 100 output.xyz
+dump 1 all xyz 100 min.xyz
 dump_modify 1 element Al
 
 minimize 1e-25 1e-25 5000 10000 
@@ -57,7 +57,12 @@ print "Cohesive energy (kcal/mol) = ${ecoh};"
 # ---------- Run Dynamics --------------------- 
 reset_timestep 0
 velocity    all create 300.0 87287 dist gaussian
-unfix 1
-fix     1 all nvt temp 300.0 300.0 100.0
+
+unfix	1
+fix	1 all nvt temp 300.0 300.0 100.0
+
+dump 1 all xyz 100 equil.xyz
+dump_modify 1 element Al
+
 run 10000
 print "All done!" 
