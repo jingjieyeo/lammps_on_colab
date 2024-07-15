@@ -30,7 +30,6 @@ timestep 0.005
 # ---------- Run Dynamics --------------------- 
 reset_timestep 0
 dump 1 all dcd 100 equil.dcd
-dump_modify 1 element Ar
 
 fix 1 all nvt temp 0.1 1.0 0.1 
 
