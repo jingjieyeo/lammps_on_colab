@@ -64,5 +64,5 @@ fix	1 all nvt temp 300.0 300.0 100.0
 dump 1 all xyz 100 equil.xyz
 dump_modify 1 element Al
 
-run 10000
+run 50000
 print "All done!" 
