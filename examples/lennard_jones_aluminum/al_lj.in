@@ -65,5 +65,5 @@ velocity    all create 300.0 87287 dist gaussian
 unfix	1
 fix	1 all nvt temp 300.0 300.0 100.0
 
-run 50000
+run 20000
 print "All done!" 
