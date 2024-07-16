@@ -55,14 +55,15 @@ print "Lattice constant (Angstroms) = ${length};"
 print "Cohesive energy (kcal/mol) = ${ecoh};"
 
 # ---------- Run Dynamics --------------------- 
+undump 1
+dump 1 all xyz 100 equil.xyz
+dump_modify 1 element Al
+
 reset_timestep 0
 velocity    all create 300.0 87287 dist gaussian
 
 unfix	1
 fix	1 all nvt temp 300.0 300.0 100.0
-
-dump 1 all xyz 100 equil.xyz
-dump_modify 1 element Al
 
 run 50000
 print "All done!" 
