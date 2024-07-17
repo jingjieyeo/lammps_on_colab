@@ -59,8 +59,6 @@ undump 1
 dump 1 all xyz 100 equil.xyz
 dump_modify 1 element Al
 
-dump myDump all atom 100 dump.lammpstrj
-
 reset_timestep 0
 velocity    all create 300.0 87287 dist gaussian
 
