@@ -10,7 +10,7 @@ angle_style       harmonic
 dihedral_style    harmonic
 improper_style    harmonic
 
-read_restart			restart.lammps
+read_restart	restart.lammps
 
 neighbor          0.3 bin
 
@@ -37,10 +37,14 @@ pair_coeff	3 	5 	69732.3531147 0.264541129506 395.685834216   # C_2  O_3
 pair_coeff	4 	4 	55027.5202694 0.252510568864 268.546375961   # O_2  O_2
 pair_coeff	4 	5 	55027.5202694 0.252510568864 268.546375961   # O_2  O_3
 pair_coeff	5 	5 	55027.5202694 0.252510568864 268.546375961   # O_3  O_3
+
 run_style         respa 3 2 2 bond 1 pair 2 kspace 3
 reset_timestep    0
 timestep          4
-dump              1 all custom 1000 equil.dump id type x y z
+
+dump 1 all xyz 1000 equil.xyz
+
 fix 1 all npt temp 300.0 300.0 100.0  iso 1.0 1.0 1000.
-run 1000000
+
+run 20000
 write_restart equil.lammps
