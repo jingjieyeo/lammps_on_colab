@@ -14,8 +14,8 @@ read_restart	restart.lammps
 
 neighbor          0.3 bin
 
-thermo_style      custom step etotal ke temp pe ebond eangle edihed eimp evdwl ecoul elong press pxx pyy pzz pxy pxz pyz lx ly lz vol density
-thermo            1000
+thermo_style      custom step etotal ke pe ebond eangle edihed eimp evdwl ecoul elong pxx pyy pzz pxy pxz pyz lx ly lz vol density temp press 
+thermo            100
 thermo_modify     flush yes
 
 # MD parameters
@@ -42,9 +42,9 @@ run_style         respa 3 2 2 bond 1 pair 2 kspace 3
 reset_timestep    0
 timestep          4
 
-dump 1 all xyz 1000 equil.xyz
+dump 1 all xyz 100 equil.xyz
 
-fix 1 all npt temp 300.0 300.0 100.0  iso 1.0 1.0 1000.
+fix 1 all npt temp 300.0 300.0 100.0 aniso 1.0 1.0 1000.
 
 run 20000
 write_restart equil.lammps
